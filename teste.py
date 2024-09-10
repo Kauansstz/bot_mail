@@ -50,3 +50,4 @@ pyautogui.press("F4")
 pyautogui.keyUp("alt")
 # abrir e fazer download do arquivo
 # ////////////////////////////////////////////////
+ 
