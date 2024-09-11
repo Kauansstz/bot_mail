@@ -21,7 +21,7 @@ soneca
 pyautogui.press("del")
 pyautogui.keyUp("shift")
 soneca()
-pyautogui.click(x=690, y=520)
+pyautogui.press("enter")
 soneca()
 pyautogui.keyDown('alt')
 soneca()
