@@ -2,15 +2,27 @@ import win32com.client as win32
 import pandas as pd
 import pyautogui
 from time import sleep
+import sys
+import os
 
+if getattr(sys, 'frozen', False):
+    script_dir = os.path.dirname(sys.executable)
+else:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+file_path = os.path.join(script_dir, 'xlsx', 'emprestimo.xlsx')
+dock = pd.read_excel(file_path)
 
 def soneca():
-    return sleep(1)
+    return sleep(4)
 
 # Excluir arquivos de excell antigos 
 pyautogui.doubleClick(x=30, y=10)
 soneca()
-pyautogui.doubleClick(x=450, y=310)
+pyautogui.doubleClick(x=450, y=175)
+soneca()
+pyautogui.doubleClick(x=450, y=114)
+soneca()
 pyautogui.keyDown("ctrl")
 soneca()
 pyautogui.press("a")
@@ -37,14 +49,34 @@ pyautogui.write("Teams")
 soneca()
 pyautogui.press("enter")
 sleep(8)
-pyautogui.click(x=830, y=65)
+pyautogui.click(x=840, y=65)
 soneca()
-pyautogui.click(x=830, y=200)
-pyautogui.scroll(-300)
+pyautogui.click(x=840, y=190)
 soneca()
-pyautogui.rightClick(x=997, y=487)
+pyautogui.scroll(-450)
 soneca()
-pyautogui.click(x=1025, y=580)
+pyautogui.rightClick(x=1000, y=598)
+soneca()
+pyautogui.click(x=1010, y=450)
+
+soneca()
+pyautogui.keyDown('alt')
+soneca()
+pyautogui.press("F4")
+pyautogui.keyUp("alt")
+soneca()
+pyautogui.doubleClick(x=30, y=10)
+soneca()
+pyautogui.doubleClick(x=450, y=175)
+soneca()
+pyautogui.doubleClick(x=450, y=114)
+pyautogui.click(x=450, y=120)
+soneca()
+pyautogui.press("F2")
+soneca()
+pyautogui.write("emprestimo")
+soneca()
+pyautogui.press("enter")
 soneca()
 pyautogui.keyDown('alt')
 soneca()
@@ -53,8 +85,7 @@ pyautogui.keyUp("alt")
 # abrir e fazer download do arquivo
 # ////////////////////////////////////////////////
  
-
-dock = pd.read_excel("xlsx/emprestimo.xlsx")
+ 
 if 'Status' in dock.columns:
     dock_read = dock[dock['Status'] == "Não Entregue"]
     if len(dock_read) >= 1:
