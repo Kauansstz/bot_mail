@@ -42,7 +42,7 @@ pyautogui.keyUp("alt")
 soneca()
 # Excluir arquivos de excell antigos 
 # ////////////////////////////////////////////////
-# abrir e fazer download do arquivo
+# Começo de abrir e fazer download do arquivo
 pyautogui.press("win")
 soneca()
 pyautogui.write("Teams")
@@ -58,12 +58,14 @@ soneca()
 pyautogui.rightClick(x=1000, y=598)
 soneca()
 pyautogui.click(x=1010, y=450)
-
 soneca()
 pyautogui.keyDown('alt')
 soneca()
 pyautogui.press("F4")
 pyautogui.keyUp("alt")
+# Fim do  abrir e fazer download do arquivo
+# ////////////////////////////////////////////////
+# Começo de Renomear o arquivo
 soneca()
 pyautogui.doubleClick(x=30, y=10)
 soneca()
@@ -82,7 +84,7 @@ pyautogui.keyDown('alt')
 soneca()
 pyautogui.press("F4")
 pyautogui.keyUp("alt")
-# abrir e fazer download do arquivo
+# Fim do Renomear o arquivo
 # ////////////////////////////////////////////////
  
  
@@ -94,19 +96,25 @@ if 'Status' in dock.columns:
             <strong>Equipamento:</strong> {row['Equipamento']}
             </span>, 
             <span>
-            <strong>status:</strong> {row['Status']}</span>, 
-            <span>
             <strong>Sala:</strong> {row['Sala']},
             </span>
-            <span><strong>Data:</strong> {row['Data']}</span>
+            <span>
+            <strong>Técnico:</strong> {row['Tecnico']}
+            </span>,
+            <span>
+            <strong>Responsavel:</strong> {row['Responsavel']}
+            </span>,
+            <span>
+            <strong>Data:</strong> {row['Data']}
+            </span>,
+            <span>
+            <strong>Status:</strong> {row['Status']}
+            </span>, 
             </p>\n""" for index, row in dock_read.iterrows()]
         mensagem_email = "\n".join(mensagem)
-
-        print(mensagem_email)
-
         outlook = win32.Dispatch("outlook.application")
         email = outlook.CreateItem(0)
-        email.To = "kauansantosdesouza45@gmail.com"
+        email.To = "kauan.souza@animaeducacao.com.br; victor.bittencourt@animaeducacao.com.br; marcelo.fraiberg@animaeducacao.com.br"
         email.Subject = "Relatório de Emprestimo"
         email.HTMLBody = f"""
             <h2>Relátorio de Salas</h2>
