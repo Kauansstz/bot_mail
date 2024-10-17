@@ -1,0 +1,9 @@
+Instale o Pyinstaller usando:
+"pip install pyinstaller"
+
+Use o comando:
+pyinstaller --noconsole --name="Bot_de_Email" --icon="mail.ico"  --add-data="xlsx/emprestimo.xlsx;xlsx." --onefile  "bot/env_email.py"
+
+--onefile: Empacota tudo em um único executável.
+--noconsole: Para aplicações GUI, oculta a janela do console.
+--icon=icone.ico: Adiciona um ícone ao seu executável.
